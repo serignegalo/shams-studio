@@ -1,0 +1,15 @@
+# Système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+
+# Dépendances éventuelles
+node_modules/
+
+# Fichiers temporaires
+*.log
+*.tmp

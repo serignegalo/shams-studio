@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHAMS STUDIO | Photo & Vidéo</title>
+<link rel="icon" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="logo">
+      <img src="assets/img/logo.png" alt="Shams Studio">
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Accueil</a>
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#pricing">Tarifs</a>
+      <a href="#testimonials">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary nav-cta">Réserver</a>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg" style="background-image:linear-gradient(rgba(10,10,10,.5),rgba(10,10,10,.7)),url('assets/img/gallery/SHAMS(109).jpg');background-position:center top;"></div>
+  <div class="hero-content">
+    <p class="hero-sub" data-aos>Photographie & Vidéographie professionnelle</p>
+    <h1 data-aos>Capturer la lumière,<br> raconter <span class="highlight">votre histoire</span></h1>
+    <p class="hero-text" data-aos>SHAMS STUDIO — l'art de figer vos plus beaux instants en images intemporelles.</p>
+    <div class="hero-actions" data-aos>
+      <a href="#portfolio" class="btn btn-primary">Voir le portfolio</a>
+      <a href="#contact" class="btn btn-outline">Nous contacter</a>
+    </div>
+  </div>
+  <a href="#about" class="scroll-down" aria-label="Défiler">
+    <span></span>
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-img" data-aos>
+      <img src="assets/img/gallery/photo_2026-07-08_16-17-56.jpg" alt="Equipe Shams Studio">
+    </div>
+    <div class="about-text" data-aos>
+      <p class="section-tag">À propos de nous</p>
+      <h2>Une vision artistique, <br>une exécution sur mesure</h2>
+      <p>SHAMS STUDIO est un collectif de photographes et vidéographes passionnés, dédié à la création de souvenirs visuels authentiques et raffinés. Du mariage à l'événement corporate, nous mettons notre œil et notre matériel professionnel au service de votre histoire.</p>
+      <div class="about-stats">
+        <div class="stat">
+          <h3>15+</h3>
+          <p>Projets réalisés</p>
+        </div>
+        <div class="stat">
+          <h3>3+</h3>
+          <p>Années d'expérience</p>
+        </div>
+        <div class="stat">
+          <h3>100%</h3>
+          <p>Clients satisfaits</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <p class="section-tag center">Nos services</p>
+    <h2 class="center" data-aos>Ce que nous proposons</h2>
+    <div class="services-grid">
+      <div class="service-card" data-aos>
+        <div class="service-icon">💍</div>
+        <h3>Photo Mariage</h3>
+        <p>Immortalisez chaque émotion de votre grand jour avec un reportage photo complet et raffiné.</p>
+      </div>
+      <div class="service-card" data-aos>
+        <div class="service-icon">🎬</div>
+        <h3>Vidéo Événementiel</h3>
+        <p>Films cinématographiques pour mariages, anniversaires et événements privés ou publics.</p>
+      </div>
+      <div class="service-card" data-aos>
+        <div class="service-icon">📸</div>
+        <h3>Portrait & Studio</h3>
+        <p>Séances portrait, shooting mode, photos de profil professionnelles en studio ou en extérieur.</p>
+      </div>
+      <div class="service-card" data-aos>
+        <div class="service-icon">🏢</div>
+        <h3>Corporate & Pub</h3>
+        <p>Contenus photo et vidéo pour votre marque : produits, équipe, événements d'entreprise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <p class="section-tag center">Portfolio</p>
+    <h2 class="center" data-aos>Nos dernières réalisations</h2>
+    <div class="filters" data-aos>
+      <button class="filter-btn active" data-filter="all">Tout</button>
+      <button class="filter-btn" data-filter="mariage">Mariage</button>
+      <button class="filter-btn" data-filter="portrait">Portrait</button>
+      <button class="filter-btn" data-filter="evenement">Événement</button>
+      <button class="filter-btn" data-filter="video">Vidéo</button>
+    </div>
+    <div class="gallery" id="gallery">
+      <div class="gallery-item" data-cat="mariage" data-aos>
+        <img src="assets/img/gallery/SHAMS(109).jpg" alt="Mariée tenue bleue">
+        <div class="overlay"><span>Mariage</span><p>Portrait de mariée</p></div>
+      </div>
+      <div class="gallery-item" data-cat="portrait" data-aos>
+        <img src="assets/img/gallery/photo_2026-03-29_21-01-12.jpg" alt="Portrait homme studio">
+        <div class="overlay"><span>Portrait</span><p>Séance studio homme</p></div>
+      </div>
+      <div class="gallery-item" data-cat="mariage" data-aos>
+        <img src="assets/img/gallery/photo_2026-06-24_16-23-10.jpg" alt="Mariée robe verte">
+        <div class="overlay"><span>Mariage</span><p>Tenue de cérémonie</p></div>
+      </div>
+      <div class="gallery-item" data-cat="portrait" data-aos>
+        <img src="assets/img/gallery/annif_.jpg" alt="Portrait annif">
+        <div class="overlay"><span>Portrait</span><p>Anniversaire</p></div>
+      </div>
+      <div class="gallery-item" data-cat="evenement" data-aos>
+        <img src="assets/img/gallery/photo_2025-12-15_03-30-41.jpg" alt="Cérémonie">
+        <div class="overlay"><span>Événement</span><p>Cérémonie privée</p></div>
+      </div>
+      <div class="gallery-item" data-cat="evenement" data-aos>
+        <img src="assets/img/gallery/photo_2026-04-02_10-43-48b.jpg" alt="Match Sénégal">
+        <div class="overlay"><span>Événement</span><p>Match Sénégal - Gambie</p></div>
+      </div>
+      <div class="gallery-item" data-cat="mariage" data-aos>
+        <img src="assets/img/gallery/photo_2026-07-08_16-21-56.jpg" alt="Mariée tenue blanche">
+        <div class="overlay"><span>Mariage</span><p>Mariée traditionnelle</p></div>
+      </div>
+      <div class="gallery-item" data-cat="portrait" data-aos>
+        <img src="assets/img/gallery/photo_2026-03-29_21-02-44.jpg" alt="Portrait enfant studio">
+        <div class="overlay"><span>Portrait</span><p>Portrait enfant</p></div>
+      </div>
+      <div class="gallery-item" data-cat="portrait" data-aos>
+        <img src="assets/img/gallery/photo_2026-03-29_21-02-45.jpg" alt="Couple studio">
+        <div class="overlay"><span>Portrait</span><p>Séance couple</p></div>
+      </div>
+      <div class="gallery-item" data-cat="portrait" data-aos>
+        <img src="assets/img/gallery/photo_2026-06-24_16-23-57.jpg" alt="Portrait femme événement">
+        <div class="overlay"><span>Portrait</span><p>Mode & Élégance</p></div>
+      </div>
+      <div class="gallery-item" data-cat="evenement" data-aos>
+        <img src="assets/img/gallery/photo_2026-07-08_16-18-00.jpg" alt="Coulisses stade">
+        <div class="overlay"><span>Événement</span><p>Reportage sportif</p></div>
+      </div>
+      <div class="gallery-item" data-cat="portrait" data-aos>
+        <img src="assets/img/gallery/portrait.jpg" alt="Portrait">
+        <div class="overlay"><span>Portrait</span><p>Portrait M. Kamoni</p></div>
+      </div>
+      <div class="gallery-item" data-cat="evenement" data-aos>
+        <img src="assets/img/gallery/genie_en_herbe_5.jpg" alt="Genies en herbe SNT">
+        <div class="overlay"><span>Événement</span><p>Mme Fati Dieng</p></div>
+      </div>
+      <div class="gallery-item" data-cat="portrait" data-aos>
+        <img src="assets/img/gallery/portrait_.jpg" alt="Portrait abdou fall">
+        <div class="overlay"><span>Événement</span><p>Fall Vision</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <p class="section-tag center">Nos formules</p>
+    <h2 class="center" data-aos>Des packs adaptés à vos besoins</h2>
+    <div class="pricing-grid">
+      <div class="price-card" data-aos>
+        <h3>Essentiel</h3>
+        <div class="price">105 000 <span>FCFA</span></div>
+        <ul>
+          <li>3h de séance</li>
+          <li>60 photos retouchées</li>
+          <li>Livraison en 2 jours</li>
+          <li>Video Cinématique</li>
+          <li>Galerie en ligne privée</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Choisir</a>
+      </div>
+      <div class="price-card featured" data-aos>
+        <span class="badge">Populaire</span>
+        <h3>Premium</h3>
+        <div class="price">165 000 <span>FCFA</span></div>
+        <ul>
+          <li>Journée complète</li>
+          <li>100 photos retouchées</li>
+          <li>Vidéo highlight (3 min)</li>
+          <li>Livraison en 2 jours</li>
+          <li>Album numérique offert</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Choisir</a>
+      </div>
+      <div class="price-card" data-aos>
+        <h3>Sur-mesure</h3>
+        <div class="price">Sur devis</div>
+        <ul>
+          <li>Prestation personnalisée</li>
+          <li>Équipe dédiée</li>
+          <li>Photo + Vidéo combinés</li>
+          <li>Livrables illimités</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Nous contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <p class="section-tag center">Témoignages</p>
+    <h2 class="center" data-aos>Ce que disent nos clients</h2>
+    <div class="testi-slider">
+      <div class="testi-card active">
+        <p class="testi-text">"Une équipe à l'écoute, des photos magnifiques de notre baptême. Tout le monde a adoré le résultat final !"</p>
+        <div class="testi-author">
+          <img src="assets/img/gallery/mame_cheikh.jpg" alt="Client">
+          <div><h4>Mame Cheikh & Khady</h4><span>Baptême</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-text">"Très professionnels, ponctuels et créatifs. Les photos de notre événement d'entreprise ont eu un succès fou."</p>
+        <div class="testi-author">
+          <img src="assets/img/gallery/dioum_traiteur.jpg" alt="Client">
+          <div><h4>Dioum Traiteur</h4><span>Corporate</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-text">"Séance portrait incroyable, je me suis senti à l'aise et le résultat dépasse mes attentes. Je recommande !"</p>
+        <div class="testi-author">
+          <img src="assets/img/gallery/diokhane_heritier.jpeg" alt="Client">
+          <div><h4>Diokhane Heritier</h4><span>Portrait</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-dots" id="testiDots"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info" data-aos>
+      <p class="section-tag">Contact</p>
+      <h2>Parlons de votre projet</h2>
+      <p class="contact-desc">Une question, un devis, une réservation ? Écrivez-nous, nous vous répondrons rapidement.</p>
+      <ul class="contact-list">
+        <li><span>📍</span> Dakar, Sénégal</li>
+        <li><span>📞</span> +221 77 359 14 34</li>
+        <li><span>✉️</span>shamsvisue@gmail.com</li>
+      </ul>
+      <div class="socials">
+        <a href="https://www.instagram.com/shams.photographe?igsh=cmVrMjBucnh5eWpl&utm_source=qr" aria-label="Instagram">Instagram</a>
+        <a href="https://t.me/serignegaloproject/1473" aria-label="Telegram">Telegram</a>
+        <a href="https://www.tiktok.com/@shams.studio1?_r=1&_t=ZS-97tMrLVgAB2" aria-label="TikTok">TikTok</a>
+      </div>
+    </div>
+    <form class="contact-form" data-aos>
+      <div class="form-row">
+        <input type="text" placeholder="Votre nom" required>
+        <input type="email" placeholder="Votre email" required>
+      </div>
+      <input type="text" placeholder="Sujet">
+      <textarea rows="5" placeholder="Votre message" required></textarea>
+      <button type="submit" class="btn btn-primary">Envoyer le message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo.png" alt="Shams Studio">
+      <p>Capturer la lumière, raconter votre histoire.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Liens rapides</h4>
+      <a href="#home">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-socials">
+      <h4>Suivez-nous</h4>
+      <a href="https://www.instagram.com/shams.photographe?igsh=cmVrMjBucnh5eWpl&utm_source=qr">Instagram</a>
+      <a href="https://t.me/serignegaloproject/1473">Telegram</a>
+      <a href="https://www.tiktok.com/@shams.studio1?_r=1&_t=ZS-97tMrLVgAB2">TikTok</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 SHAMS STUDIO. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
+<a href="https://wa.me/221773591434" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.71 13.43L3 21l3.69-1.32a8.9 8.9 0 0 0 5.36 1.81A8.94 8.94 0 0 0 17.6 6.32ZM12.05 19.8a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.81 1 .94-2.74-.18-.28a7.42 7.42 0 0 1 6.1-11.42 7.4 7.4 0 0 1 7.4 7.43 7.4 7.4 0 0 1-7.4 7.41Zm4.07-5.55c-.22-.11-1.31-.65-1.52-.72-.2-.07-.35-.11-.5.11-.15.22-.57.72-.7.86-.13.15-.26.16-.48.05-.22-.11-.92-.34-1.75-1.08-.65-.58-1.08-1.3-1.21-1.52-.13-.22-.01-.34.1-.45.11-.11.26-.28.39-.42.13-.15.17-.25.26-.41.09-.16.04-.31-.03-.43-.07-.11-.59-1.42-.81-1.94-.22-.51-.44-.44-.6-.45h-.51c-.16 0-.42.06-.65.31-.22.25-.85.83-.85 2.03 0 1.2.87 2.36 1 2.52.13.16 1.71 2.61 4.15 3.55 2.43.95 2.43.63 2.87.59.44-.04 1.31-.53 1.49-1.05.18-.51.18-.95.13-1.05-.06-.1-.22-.16-.45-.27Z"/></svg>
+</a>
+
+<script src="script.js?v=2"></script>
+</body>
+</html>
