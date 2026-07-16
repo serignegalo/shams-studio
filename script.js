@@ -51,6 +51,13 @@ const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
 galleryItems.forEach(item => {
   item.addEventListener('click', () => {
+    // Carte vidéo -> redirection vers le lien (Telegram)
+    const videoUrl = item.dataset.video;
+    if (videoUrl) {
+      window.open(videoUrl, '_blank', 'noopener');
+      return;
+    }
+    // Sinon -> ouverture de l'image en grand
     const img = item.querySelector('img');
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
