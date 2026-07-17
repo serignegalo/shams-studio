@@ -7,12 +7,27 @@ window.addEventListener('scroll', () => {
 // Mobile burger menu
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
-burger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  burger.classList.toggle('active');
+const navClose = document.getElementById('navClose');
+
+function openMenu() { navLinks.classList.add('active'); burger.classList.add('active'); }
+function closeMenu() { navLinks.classList.remove('active'); burger.classList.remove('active'); }
+
+burger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  navLinks.classList.contains('active') ? closeMenu() : openMenu();
 });
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => navLinks.classList.remove('active'));
+navClose.addEventListener('click', (e) => { e.stopPropagation(); closeMenu(); });
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+// Fermer le menu si on clique en dehors ou sur Echap
+document.addEventListener('click', (e) => {
+  if (navLinks.classList.contains('active') &&
+      !navLinks.contains(e.target) && !burger.contains(e.target)) {
+    closeMenu();
+  }
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMenu();
 });
 
 // Activer les animations seulement si JS tourne correctement
