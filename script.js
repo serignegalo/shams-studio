@@ -84,6 +84,17 @@ lightbox.addEventListener('click', (e) => {
   if (e.target === lightbox) lightbox.classList.remove('active');
 });
 
+// About slideshow (2 photos qui alternent)
+const aboutSlides = document.querySelectorAll('.about-img .about-slide');
+if (aboutSlides.length > 1) {
+  let currentAbout = 0;
+  setInterval(() => {
+    aboutSlides[currentAbout].classList.remove('active');
+    currentAbout = (currentAbout + 1) % aboutSlides.length;
+    aboutSlides[currentAbout].classList.add('active');
+  }, 4000);
+}
+
 // Testimonial slider
 const testiCards = document.querySelectorAll('.testi-card');
 const testiDotsContainer = document.getElementById('testiDots');

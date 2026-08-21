@@ -124,7 +124,9 @@ h2{font-size:clamp(28px,4vw,42px);margin-bottom:16px;}
 /* ABOUT */
 .about{background:var(--dark);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-.about-img img{border-radius:8px;width:100%;height:480px;object-fit:cover;}
+.about-img{position:relative;border-radius:8px;overflow:hidden;height:480px;}
+.about-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;}
+.about-img img.active{opacity:1;}
 .about-text h2{margin-bottom:20px;}
 .about-text p{color:var(--gray);margin-bottom:24px;}
 .about-stats{display:flex;gap:40px;margin-top:20px;flex-wrap:wrap;}
@@ -286,7 +288,7 @@ h2{font-size:clamp(28px,4vw,42px);margin-bottom:16px;}
 /* RESPONSIVE */
 @media(max-width:992px){
   .about-grid,.contact-grid{grid-template-columns:1fr;}
-  .about-img img{height:340px;}
+  .about-img{height:340px;}
   .services-grid{grid-template-columns:repeat(2,1fr);}
   .gallery{grid-template-columns:repeat(2,1fr);}
   .pricing-grid{grid-template-columns:1fr;}
@@ -307,6 +309,7 @@ h2{font-size:clamp(28px,4vw,42px);margin-bottom:16px;}
   .burger{display:flex;}
   .form-row{flex-direction:column;}
   .services-grid,.gallery{grid-template-columns:1fr 1fr;}
+  .hero-bg{background-image:linear-gradient(rgba(10,10,10,.5),rgba(10,10,10,.7)),url('assets/img/gallery/0M2A4439-Modifier.jpg') !important;}
 }
 @media(max-width:480px){
   .services-grid,.gallery{grid-template-columns:1fr;}
