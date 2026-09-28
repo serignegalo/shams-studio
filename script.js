@@ -131,7 +131,7 @@ contactForm.addEventListener('submit', (e) => {
   const sujet = sujetInput ? sujetInput.value : '';
   const message = contactForm.querySelector('textarea').value;
 
-  const destinataire = 'shamsvisue@gmail.com';
+  const destinataire = 'shamsvisuel@gmail.com';
   const objet = encodeURIComponent(sujet ? sujet : `Demande de ${nom}`);
   const corps = encodeURIComponent(
     `Nom : ${nom}\nEmail : ${email}\n\n${message}`
