@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHAMS STUDIO | Photo & Vidéo</title>
+<title>SHAMS STUDIO | Photo & Vidéo à Dakar</title>
+<meta name="description" content="SHAMS STUDIO, photographe et vidéaste à Dakar : mariages, baptêmes, événements, portraits et shootings studio.">
 <link rel="icon" href="assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -21,10 +22,10 @@
       <button class="nav-close" id="navClose" aria-label="Fermer le menu">&times;</button>
       <a href="#home">Accueil</a>
       <a href="#about">À propos</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="mariage-bapteme.html">Mariage & Baptême</a>
+      <a href="evenements.html">Événements</a>
+      <a href="studio.html">Portrait & Studio</a>
       <a href="#pricing">Tarifs</a>
-      <a href="#testimonials">Avis</a>
       <a href="#contact">Contact</a>
     </nav>
     <a href="#contact" class="btn btn-primary nav-cta">Réserver</a>
@@ -88,196 +89,53 @@
     <p class="section-tag center">Nos services</p>
     <h2 class="center" data-aos>Ce que nous proposons</h2>
     <div class="services-grid">
-      <div class="service-card" data-aos>
+      <a href="mariage-bapteme.html" class="service-card" data-aos>
         <div class="service-icon">💍</div>
         <h3>Photo Mariage</h3>
         <p>Immortalisez chaque émotion de votre grand jour avec un reportage photo complet et raffiné.</p>
-      </div>
-      <div class="service-card" data-aos>
+        <span class="univers-link">Découvrir →</span>
+      </a>
+      <a href="evenements.html" class="service-card" data-aos>
         <div class="service-icon">🎬</div>
         <h3>Vidéo Événementiel</h3>
         <p>Films cinématographiques pour mariages, anniversaires et événements privés ou publics.</p>
-      </div>
-      <div class="service-card" data-aos>
+        <span class="univers-link">Découvrir →</span>
+      </a>
+      <a href="studio.html" class="service-card" data-aos>
         <div class="service-icon">📸</div>
         <h3>Portrait & Studio</h3>
         <p>Séances portrait, shooting mode, photos de profil professionnelles en studio ou en extérieur.</p>
-      </div>
-      <div class="service-card" data-aos>
+        <span class="univers-link">Découvrir →</span>
+      </a>
+      <a href="evenements.html" class="service-card" data-aos>
         <div class="service-icon">🏢</div>
         <h3>Corporate & Pub</h3>
         <p>Contenus photo et vidéo pour votre marque : produits, équipe, événements d'entreprise.</p>
-      </div>
+        <span class="univers-link">Découvrir →</span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section class="portfolio" id="portfolio">
+<!-- PORTFOLIO : un accès par prestation -->
+<section class="portfolio univers" id="portfolio">
   <div class="container">
     <p class="section-tag center">Portfolio</p>
-    <h2 class="center" data-aos>Nos dernières réalisations</h2>
-    <div class="filters" data-aos>
-      <button class="filter-btn active" data-filter="all">Tout</button>
-      <button class="filter-btn" data-filter="mariage">Mariage</button>
-      <button class="filter-btn" data-filter="portrait">Portrait</button>
-      <button class="filter-btn" data-filter="evenement">Événement</button>
-      <button class="filter-btn" data-filter="video">Vidéo</button>
-    </div>
-    <div class="gallery" id="gallery">
-      <div class="gallery-item" data-cat="evenement" data-aos>
-        <img src="assets/img/gallery/IMG_0428.JPG" alt="Cheikh Alassane Sene" style="object-position:center -0.1%;">
-        <div class="overlay"><span>Gamou</span><p>Chez Cheikh Alassane Sene</p></div>
-      </div>
-      <div class="gallery-item" data-cat="mariage" data-aos>
-        <img src="assets/img/gallery/0M2A4439-Modifier.jpg" alt="Les Mariés M. & Mme Fall" style="object-position:center -0.1%;">
-        <div class="overlay"><span>Mariage</span><p>Les Mariés</p></div>
-      </div>
-      <div class="gallery-item" data-cat="evenement" data-aos>
-        <img src="assets/img/gallery/img_80.jpg" alt="she_codes" style="object-position:center -0.1%;">
-        <div class="overlay"><span>SHECODES</span><p>Ceremonie de cloture SHECODES</p></div>
-      </div>
-      <div class="gallery-item is-video" data-cat="video" data-video="https://www.instagram.com/reel/DZSQeUIqnK6/?igsh=ZWN2cmtocnRscDRm" data-aos>
-        <img src="assets/img/gallery/photo_2026-07-16_15-36-29.jpg" alt="Vidéo SHAMS Studio 2">
-        <span class="play-icon" aria-hidden="true">▶</span>
-        <div class="overlay"><span>Soutenance Droit</span><p>Regarder la vidéo</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/IMG_0697.jpg" alt="Portrait">
-        <div class="overlay"><span>Portrait</span><p>Portrait M. Kamoni</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/IMG_0740.jpg" alt="Portrait">
-        <div class="overlay"><span>Portrait</span><p>Portrait M. Kamoni</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/IMG_0730.jpg" alt="Portrait">
-        <div class="overlay"><span>Portrait</span><p>Mo Joxaane</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/IMG_0789.jpg" alt="Portrait">
-        <div class="overlay"><span>Portrait</span><p>Aldo</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/photo_2026-07-15_18-20-45.jpg" alt="Portrait model" style="object-position:center -0.1%;">
-        <div class="overlay"><span>Portrait Mode</span><p>Model Couture</p></div>
-      </div>
-      <div class="gallery-item" data-cat="mariage" data-aos>
-        <img src="assets/img/gallery/photo_2026-06-24_16-21-36.jpg" alt="Photo famille mariage" style="object-position:center -0.1%;">
-        <div class="overlay"><span>Bapteme</span><p>M & Mme Ngom</p></div>
-      </div>
-      <div class="gallery-item" data-cat="evenement" data-aos>
-        <img src="assets/img/gallery/IMG_0559.jpg" alt="Gamou CHeikh Alassane" style="object-position:center -0.1%;">
-        <div class="overlay"><span>Gamou</span><p>Serigne Saliou Ndigal Thioune</p></div>
-      </div>
-      <div class="gallery-item" data-cat="mariage" data-aos>
-        <img src="assets/img/gallery/photo_2026-06-24_16-23-10.jpg" alt="Mariée robe verte">
-        <div class="overlay"><span>Bapteme</span><p>Tenue de cérémonie</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/photo_2026-06-24_16-23-57.jpg" alt="Portrait femme événement">
-        <div class="overlay"><span>Portrait</span><p>Mode & Élégance</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/photo_2026-07-15_18-19-26.jpg" alt="Portrait">
-        <div class="overlay"><span>Portrait</span><p>Couture Model</p></div>
-      </div>
-      <div class="gallery-item" data-cat="evenement" data-aos>
-        <img src="assets/img/gallery/genie_en_herbe_3.jpg" alt="evenement">
-        <div class="overlay"><span>Événement</span><p>Génies en herbe</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/annif_.jpg" alt="Portrait annif">
-        <div class="overlay"><span>Portrait</span><p>Anniversaire</p></div>
-      </div>
-      <div class="gallery-item" data-cat="evenement" data-aos>
-        <img src="assets/img/gallery/photo_2026-04-02_10-43-48b.jpg" alt="Match Sénégal">
-        <div class="overlay"><span>Événement</span><p>Match Sénégal - Gambie</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/portrait.jpg" alt="Portrait">
-        <div class="overlay"><span>Portrait</span><p>Portrait M. Kamoni</p></div>
-      </div>
-      <div class="gallery-item" data-cat="evenement" data-aos>
-        <img src="assets/img/gallery/genie_en_herbe_5.jpg" alt="Genies en herbe SNT">
-        <div class="overlay"><span>Événement</span><p>Mme Fati Dieng</p></div>
-      </div>
-      <div class="gallery-item" data-cat="evenement" data-aos>
-        <img src="assets/img/gallery/khadim.jpg" alt="Journée d'intégration CAP">
-        <div class="overlay"><span>Événement</span><p>President CAP for change</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/_MG_9238-Modifier.jpg" alt="Portrait">
-        <div class="overlay"><span>Portrait</span><p>Couple | Shooting a domicile</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/_MG_9290-Modifier.jpg" alt="Portrait">
-        <div class="overlay"><span>Portrait</span><p>Portrait Dame</p></div>
-      </div>
-      <div class="gallery-item" data-cat="mariage" data-aos>
-        <img src="assets/img/gallery/_MG_0223.jpg" alt="Portrait">
-        <div class="overlay"><span>Portrait</span><p>Couple | Shooting Plage</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/photo_2026-03-29_21-01-12.jpg" alt="Portrait homme studio">
-        <div class="overlay"><span>Portrait</span><p>Séance studio homme</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/joueur.jpg" alt="Portrait homme studio">
-        <div class="overlay"><span>Portrait</span><p>Sportif - Real TL221</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/photo_2026-03-29_21-02-44.jpg" alt="Portrait enfant studio">
-        <div class="overlay"><span>Portrait</span><p>Portrait enfant</p></div>
-      </div>
-      <div class="gallery-item" data-cat="portrait" data-aos>
-        <img src="assets/img/gallery/photo_2026-03-29_21-02-45.jpg" alt="Couple studio">
-        <div class="overlay"><span>Portrait</span><p>Séance couple</p></div>
-      </div>
-      <div class="gallery-item" data-cat="evenement" data-aos>
-        <img src="assets/img/gallery/photo_2026-07-08_16-18-00.jpg" alt="Coulisses stade">
-        <div class="overlay"><span>Événement</span><p>Reportage sportif</p></div>
-      </div>
-      <div class="gallery-item is-video" data-cat="video" data-video="https://t.me/serignegaloproject/1615" data-aos>
-        <img src="assets/img/gallery/img_89.jpg" alt="Vidéo Mariage des Fall">
-        <span class="play-icon" aria-hidden="true">▶</span>
-        <div class="overlay"><span>Video SHECODES | Ceremonie de cloture</span><p>Regarder la vidéo</p></div>
-      </div>
-      <div class="gallery-item is-video" data-cat="video" data-video="https://t.me/serignegaloproject/1538" data-aos>
-        <img src="assets/img/gallery/0M2A4439-Modifier.jpg" alt="Vidéo Mariage des Fall">
-        <span class="play-icon" aria-hidden="true">▶</span>
-        <div class="overlay"><span>Film Mariage | M & Mme Fall</span><p>Regarder la vidéo</p></div>
-      </div>
-      <div class="gallery-item is-video" data-cat="video" data-video="https://t.me/serignegaloproject/1505" data-aos>
-        <img src="assets/img/gallery/photo_2026-07-16_14-45-11.jpg" alt="Vidéo SHAMS Studio 1">
-        <span class="play-icon" aria-hidden="true">▶</span>
-        <div class="overlay"><span>Soutenance ESP | M. Fall</span><p>Regarder la vidéo</p></div>
-      </div>
-      <div class="gallery-item is-video" data-cat="video" data-video="https://t.me/serignegaloproject/1506" data-aos>
-        <img src="assets/img/gallery/photo_2026-07-16_14-45-25.jpg" alt="Vidéo SHAMS Studio 2">
-        <span class="play-icon" aria-hidden="true">▶</span>
-        <div class="overlay"><span>Soutenance Doctorat</span><p>Regarder la vidéo</p></div>
-      </div>
-      <div class="gallery-item is-video" data-cat="video" data-video="https://www.instagram.com/reel/DaafsMPqeQK/?igsh=MXZocWk2aG04eTl3aA==" data-aos>
-        <img src="assets/img/gallery/_MG_9770-Modifier.jpg" alt="Vidéo SHAMS Studio 4">
-        <span class="play-icon" aria-hidden="true">▶</span>
-        <div class="overlay"><span>Bapteme Princesse Niang</span><p>Regarder la vidéo</p></div>
-      </div>
-      <div class="gallery-item is-video" data-cat="video" data-video="https://www.instagram.com/reel/DaafsMPqeQK/?igsh=MXZocWk2aG04eTl3aA==" data-aos>
-        <img src="assets/img/gallery/photo_2026-07-16_15-40-29.jpg" alt="Vidéo SHAMS Studio 5">
-        <span class="play-icon" aria-hidden="true">▶</span>
-        <div class="overlay"><span>Ndogou Maalaw Pikine</span><p>Regarder la vidéo</p></div>
-      </div>
-      <div class="gallery-item is-video" data-cat="video" data-video="https://www.instagram.com/reel/DaJgrr1qs6n/?igsh=MXc0eXpybnRpd2xoZA==" data-aos>
-        <img src="assets/img/gallery/photo_2026-07-16_15-44-42.jpg" alt="Vidéo SHAMS Studio 5">
-        <span class="play-icon" aria-hidden="true">▶</span>
-        <div class="overlay"><span>Zikroullah | Fanaanal Tamxarit Parcelles</span><p>Regarder la vidéo</p></div>
-      </div>
-      <div class="gallery-item is-video" data-cat="video" data-video="https://www.instagram.com/reel/DVMlSONjem7/?igsh=MWw2anlod3cydHo2Yw==" data-aos>
-        <img src="assets/img/gallery/photo_2026-07-16_15-48-32.jpg" alt="Vidéo SHAMS Studio 5">
-        <span class="play-icon" aria-hidden="true">▶</span>
-        <div class="overlay"><span>Zikroullah | Fanaanal Tamxarit Parcelles</span><p>Regarder la vidéo</p></div>
-      </div>
+    <h2 class="center" data-aos>Explorez nos réalisations</h2>
+    <p class="section-lead center" data-aos>Choisissez une prestation pour voir les photos et vidéos correspondantes.</p>
+    <div class="univers-grid">
+      <a href="mariage-bapteme.html" class="univers-card" data-aos>
+        <img src="assets/img/gallery/0M2A4439-Modifier.jpg" alt="Mariage & Baptême" loading="lazy">
+        <div class="univers-body"><h3>Mariage & Baptême</h3><p>Mariages, baptêmes et fêtes de famille.</p><span class="univers-link">Voir la galerie →</span></div>
+      </a>
+      <a href="evenements.html" class="univers-card" data-aos>
+        <img src="assets/img/gallery/IMG_0428.JPG" alt="Événements" loading="lazy">
+        <div class="univers-body"><h3>Événements</h3><p>Cérémonies, soutenances, sport et corporate.</p><span class="univers-link">Voir la galerie →</span></div>
+      </a>
+      <a href="studio.html" class="univers-card" data-aos>
+        <img src="assets/img/gallery/photo_2026-07-15_18-20-45.jpg" alt="Portrait & Studio" loading="lazy">
+        <div class="univers-body"><h3>Portrait & Studio</h3><p>Portrait, mode, couple et famille.</p><span class="univers-link">Voir la galerie →</span></div>
+      </a>
     </div>
   </div>
 </section>
@@ -400,8 +258,9 @@
     <div class="footer-links">
       <h4>Liens rapides</h4>
       <a href="#home">Accueil</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="mariage-bapteme.html">Mariage & Baptême</a>
+      <a href="evenements.html">Événements</a>
+      <a href="studio.html">Portrait & Studio</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="footer-socials">
@@ -426,6 +285,6 @@
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.71 13.43L3 21l3.69-1.32a8.9 8.9 0 0 0 5.36 1.81A8.94 8.94 0 0 0 17.6 6.32ZM12.05 19.8a7.4 7.4 0 0 1-3.78-1.04l-.27-.16-2.81 1 .94-2.74-.18-.28a7.42 7.42 0 0 1 6.1-11.42 7.4 7.4 0 0 1 7.4 7.43 7.4 7.4 0 0 1-7.4 7.41Zm4.07-5.55c-.22-.11-1.31-.65-1.52-.72-.2-.07-.35-.11-.5.11-.15.22-.57.72-.7.86-.13.15-.26.16-.48.05-.22-.11-.92-.34-1.75-1.08-.65-.58-1.08-1.3-1.21-1.52-.13-.22-.01-.34.1-.45.11-.11.26-.28.39-.42.13-.15.17-.25.26-.41.09-.16.04-.31-.03-.43-.07-.11-.59-1.42-.81-1.94-.22-.51-.44-.44-.6-.45h-.51c-.16 0-.42.06-.65.31-.22.25-.85.83-.85 2.03 0 1.2.87 2.36 1 2.52.13.16 1.71 2.61 4.15 3.55 2.43.95 2.43.63 2.87.59.44-.04 1.31-.53 1.49-1.05.18-.51.18-.95.13-1.05-.06-.1-.22-.16-.45-.27Z"/></svg>
 </a>
 
-<script src="script.js?v=2"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>

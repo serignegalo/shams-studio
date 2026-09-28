@@ -1,8 +1,8 @@
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
+const updateNavbar = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
+window.addEventListener('scroll', updateNavbar);
+updateNavbar();
 
 // Mobile burger menu
 const burger = document.getElementById('burger');
@@ -74,15 +74,18 @@ galleryItems.forEach(item => {
     }
     // Sinon -> ouverture de l'image en grand
     const img = item.querySelector('img');
+    if (!lightbox) return;
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
     lightbox.classList.add('active');
   });
 });
-lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) lightbox.classList.remove('active');
-});
+if (lightbox) {
+  lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.classList.remove('active');
+  });
+}
 
 // About slideshow (2 photos qui alternent)
 const aboutSlides = document.querySelectorAll('.about-img .about-slide');
@@ -100,7 +103,8 @@ const testiCards = document.querySelectorAll('.testi-card');
 const testiDotsContainer = document.getElementById('testiDots');
 let currentTesti = 0;
 
-// Créer les points
+// Créer les points (seulement s'il y a plusieurs avis)
+if (testiDotsContainer && testiCards.length > 1) {
 testiCards.forEach((_, i) => {
   const dot = document.createElement('button');
   dot.classList.add('dot');
@@ -120,10 +124,11 @@ function goToTesti(index) {
 setInterval(() => {
   goToTesti((currentTesti + 1) % testiCards.length);
 }, 5000);
+}
 
 // Contact form -> ouvre le client mail vers SHAMS STUDIO
 const contactForm = document.querySelector('.contact-form');
-contactForm.addEventListener('submit', (e) => {
+if (contactForm) contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const nom = contactForm.querySelector('input[type="text"]').value;
   const email = contactForm.querySelector('input[type="email"]').value;
