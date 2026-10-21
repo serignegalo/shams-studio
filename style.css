@@ -94,10 +94,25 @@ h2{font-size:clamp(28px,4vw,42px);margin-bottom:16px;}
 }
 .hero-bg{
   position:absolute;inset:0;
+  z-index:-1;
+}
+.hero-slide{
+  position:absolute;inset:0;
   background-size:cover;
   background-position:center top;
   background-repeat:no-repeat;
-  z-index:-1;
+  opacity:0;
+  transition:opacity 1.5s ease-in-out;
+  animation:heroZoom 8s ease-in-out infinite alternate;
+}
+.hero-slide::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(rgba(10,10,10,.5),rgba(10,10,10,.7));
+}
+.hero-slide.active{opacity:1;}
+@keyframes heroZoom{
+  from{transform:scale(1);}
+  to{transform:scale(1.08);}
 }
 .hero-content{max-width:800px;padding:0 24px;}
 .hero-sub{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:13px;margin-bottom:16px;font-weight:600;}
@@ -309,7 +324,6 @@ h2{font-size:clamp(28px,4vw,42px);margin-bottom:16px;}
   .burger{display:flex;}
   .form-row{flex-direction:column;}
   .services-grid,.gallery{grid-template-columns:1fr 1fr;}
-  .hero-bg{background-image:linear-gradient(rgba(10,10,10,.5),rgba(10,10,10,.7)),url('assets/img/gallery/0M2A4439-Modifier.jpg') !important;}
 }
 @media(max-width:480px){
   .services-grid,.gallery{grid-template-columns:1fr;}

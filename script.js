@@ -4,6 +4,17 @@ const updateNavbar = () => navbar.classList.toggle('scrolled', window.scrollY > 
 window.addEventListener('scroll', updateNavbar);
 updateNavbar();
 
+// Hero slider (fondu automatique entre les photos)
+const heroSlides = document.querySelectorAll('#heroSlider .hero-slide');
+if (heroSlides.length > 1) {
+  let currentHero = 0;
+  setInterval(() => {
+    heroSlides[currentHero].classList.remove('active');
+    currentHero = (currentHero + 1) % heroSlides.length;
+    heroSlides[currentHero].classList.add('active');
+  }, 5000);
+}
+
 // Mobile burger menu
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
