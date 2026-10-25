@@ -31,6 +31,7 @@ const EMAIL_STUDIO = 'COLLER_ICI_VOTRE_EMAIL';
 const DUREE_CACHE = 15 * 60; // secondes : délai max avant qu'un ajout dans Drive apparaisse
 
 const TYPES_IMAGE = "(mimeType contains 'image/')";
+const TYPES_MEDIAS = "(mimeType contains 'image/' or mimeType contains 'video/')";
 const TYPE_DOSSIER = "mimeType = 'application/vnd.google-apps.folder'";
 
 function doGet(e) {
@@ -106,10 +107,10 @@ function ouvrirGalerie(lien, code) {
   const contenu = lireCache('contenu_' + g.id, () => {
     partagerParLien(g.id);
     const ensembles = [];
-    const racine = lister(g.id, TYPES_IMAGE).map(photo);
+    const racine = lister(g.id, TYPES_MEDIAS).map(photo);
     if (racine.length) ensembles.push({ nom: 'Photos', photos: racine });
     lister(g.id, TYPE_DOSSIER).forEach(sous => {
-      const photos = lister(sous.id, TYPES_IMAGE).map(photo);
+      const photos = lister(sous.id, TYPES_MEDIAS).map(photo);
       if (photos.length) ensembles.push({ nom: sous.name, photos: photos });
     });
     return { ensembles: ensembles, dossier: g.id };
@@ -163,7 +164,7 @@ function lister(parentId, filtre, champs) {
   do {
     const page = Drive.Files.list({
       q: "'" + parentId + "' in parents and trashed = false and " + filtre,
-      fields: 'nextPageToken, files(' + (champs || 'id,name,thumbnailLink,imageMediaMetadata(width,height,rotation)') + ')',
+      fields: 'nextPageToken, files(' + (champs || 'id,name,mimeType,thumbnailLink,imageMediaMetadata(width,height,rotation),videoMediaMetadata(width,height,durationMillis)') + ')',
       orderBy: 'name_natural',
       pageSize: 1000,
       pageToken: jeton
@@ -180,6 +181,10 @@ function photo(f) {
   // thumbnailLink : adresse signée des serveurs d'images Google (valable quelques heures,
   // bien plus que le cache), redimensionnable en remplaçant le suffixe « =s220 »
   const vignette = String(f.thumbnailLink || '').replace(/=s\d+$/, '');
+  if (String(f.mimeType).indexOf('video/') === 0) {
+    const v = f.videoMediaMetadata || {};
+    return { id: f.id, nom: f.name, t: vignette, l: v.width || 0, h: v.height || 0, video: true, duree: Math.round((Number(v.durationMillis) || 0) / 1000) };
+  }
   return { id: f.id, nom: f.name, t: vignette, l: (tourne ? m.height : m.width) || 0, h: (tourne ? m.width : m.height) || 0 };
 }
 

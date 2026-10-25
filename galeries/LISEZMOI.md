@@ -79,6 +79,12 @@ dans l'éditeur Apps Script, exécuter la fonction `viderCache`.
 Un réglage ne semble pas pris en compte ? Exécuter la fonction `voirReglages` : le journal
 affiche, pour chaque galerie, la description telle que Drive la fournit et les réglages compris.
 
+### Vidéos
+
+Les vidéos déposées dans le dossier (MP4, MOV…) apparaissent dans la grille avec une pastille dorée
+« Vidéo · durée » et un bouton lecture ; elles se lisent dans le lecteur de Google Drive.
+Juste après l'envoi, Drive peut mettre quelques minutes à préparer la vidéo avant qu'elle soit lisible.
+
 ## Ce que peut faire le client
 
 - Parcourir les photos en grille, les ouvrir en plein écran (flèches du clavier, glisser au doigt).

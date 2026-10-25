@@ -13,7 +13,8 @@
     gauche: ic('<path d="M15 5l-7 7 7 7"/>'),
     droite: ic('<path d="M9 5l7 7-7 7"/>'),
     cadenas: ic('<rect x="5" y="10.5" width="14" height="10" rx="1.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/>'),
-    envoyer: ic('<path d="M4 12 20 4l-4 16-4-7-8-1Z"/><path d="m12 13 8-9"/>')
+    envoyer: ic('<path d="M4 12 20 4l-4 16-4-7-8-1Z"/><path d="m12 13 8-9"/>'),
+    lecture: ic('<path d="M8 5.5v13l11-6.5-11-6.5Z"/>')
   };
 
   /* ---------- Démonstration (photos du portfolio) ---------- */
@@ -177,6 +178,10 @@
     return m ? `${+m[1]} ${MOIS[+m[2] - 1]} ${m[3]}` : String(d || '');
   }
   const ligneInfos = g => [dateLisible(g.date), g.lieu].filter(Boolean).map(echapper).join(' · ');
+  const duree = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+  const pluriel = (n, mot) => `${n} ${mot}${n > 1 ? 's' : ''}`;
+  // Une vidéo Drive se lit dans le lecteur de Google (le dossier est partagé par lien)
+  const lecteurVideo = p => `https://drive.google.com/file/d/${p.id}/preview`;
 
   function lireStockage(cle, defaut, stockage = localStorage) {
     try { const v = stockage.getItem(cle); return v === null ? defaut : JSON.parse(v); } catch { return defaut; }
@@ -262,7 +267,7 @@
 
     function heros(g, contenu) {
       return `
-        <section class="heros">
+        <section class="heros${g.couverture && g.couverture.h > g.couverture.l ? ' heros-portrait' : ''}">
           <a class="retour" href="./" aria-label="Toutes les galeries"><img class="logo-clair" src="../assets/img/logo.png" alt="Shams Studio"></a>
           ${g.couverture ? `<img class="heros-image" alt="" fetchpriority="high">` : ''}
           <div class="heros-contenu">
@@ -309,7 +314,10 @@
       let affichees = [];
 
       zone.innerHTML = heros(g, `
-          <p class="heros-compte">${toutes.length} photo${toutes.length > 1 ? 's' : ''}</p>
+          <p class="heros-compte">${[
+            pluriel(toutes.filter(p => !p.video).length, 'photo'),
+            toutes.some(p => p.video) ? pluriel(toutes.filter(p => p.video).length, 'vidéo') : ''
+          ].filter(Boolean).join(' · ')}</p>
           <a class="btn btn-primary" href="#photos">Voir les photos</a>`) + `
         <div class="barre" id="barre">
           <div class="barre-interieur">
@@ -379,11 +387,13 @@
 
       function vignette(p, i) {
         const fig = document.createElement('figure');
-        fig.className = 'vignette';
+        fig.className = p.video ? 'vignette vignette-video' : 'vignette';
         fig.dataset.id = p.id;
         fig.innerHTML = `
-          <button class="vignette-ouvrir" aria-label="Agrandir ${echapper(p.nom)}">
+          <button class="vignette-ouvrir" aria-label="${p.video ? 'Lire la vidéo' : 'Agrandir'} ${echapper(p.nom)}">
             <img alt="" decoding="async">
+            ${p.video ? `<span class="video-lecture">${ICONES.lecture}</span>
+            <span class="video-badge">${ICONES.lecture}Vidéo${p.duree ? ' · ' + duree(p.duree) : ''}</span>` : ''}
           </button>
           <div class="vignette-actions">
             <button class="bouton-coeur" aria-pressed="${favoris.has(p.id)}" aria-label="Favori">${ICONES.coeur}</button>
@@ -460,25 +470,40 @@
               <button class="bouton-icone" id="lb-fermer" aria-label="Fermer">${ICONES.fermer}</button>
             </div>
           </div>
-          <div class="lb-scene"><img id="lb-img" alt=""></div>
+          <div class="lb-scene"><img id="lb-img" alt=""><iframe id="lb-video" title="Vidéo" allow="autoplay; fullscreen" allowfullscreen hidden></iframe></div>
           <button class="lb-nav lb-prec" id="lb-prec" aria-label="Photo précédente">${ICONES.gauche}</button>
           <button class="lb-nav lb-suiv" id="lb-suiv" aria-label="Photo suivante">${ICONES.droite}</button>`;
         document.body.append(el);
         const img = $('#lb-img', el);
+        const video = $('#lb-video', el);
         const largeurHD = () => image.largeurPour(innerWidth);
         let index = 0;
         let declencheur = null;
 
+        function arreterVideo() {
+          video.hidden = true;
+          if (video.getAttribute('src')) video.removeAttribute('src');
+        }
+
         function montrer() {
           const p = affichees[index];
           img.classList.remove('prete');
-          chargeur.charger(img, p, largeurHD(), { prioritaire: true, ok: () => img.classList.add('prete') });
+          if (p.video) {
+            img.hidden = true;
+            video.style.aspectRatio = p.l && p.h ? `${p.l} / ${p.h}` : '16 / 9';
+            if (video.getAttribute('src') !== lecteurVideo(p)) video.src = lecteurVideo(p);
+            video.hidden = false;
+          } else {
+            arreterVideo();
+            img.hidden = false;
+            chargeur.charger(img, p, largeurHD(), { prioritaire: true, ok: () => img.classList.add('prete') });
+          }
           img.alt = p.nom;
           $('#lb-compteur', el).textContent = `${index + 1} / ${affichees.length}`;
           const dl = $('#lb-dl', el);
           if (dl) { dl.href = image.telechargement(p); dl.setAttribute('download', p.nom); }
           majCoeur();
-          [index + 1, index - 1].forEach(j => { const v = affichees[j]; if (v) chargeur.charger(new Image(), v, largeurHD()); });
+          [index + 1, index - 1].forEach(j => { const v = affichees[j]; if (v && !v.video) chargeur.charger(new Image(), v, largeurHD()); });
         }
 
         function majCoeur() { if (!el.hidden) $('#lb-coeur', el).setAttribute('aria-pressed', favoris.has(affichees[index]?.id)); }
@@ -489,6 +514,7 @@
           montrer(); $('#lb-fermer', el).focus();
         }
         function fermer() {
+          arreterVideo();
           el.hidden = true; document.body.classList.remove('sans-defilement');
           if (ongletActif === 'favoris') dessinerPhotos();
           declencheur?.focus?.();
