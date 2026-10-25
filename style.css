@@ -337,6 +337,41 @@ h2{font-size:clamp(28px,4vw,42px);margin-bottom:16px;}
 .nav-links a.current{color:var(--gold);}
 .nav-links a.current::after{width:100%;}
 
+/* Menu déroulant « Prestations » */
+.nav-dropdown{position:relative;}
+.nav-dropdown-toggle{
+  display:inline-flex;align-items:center;gap:6px;position:relative;
+  background:none;border:none;color:var(--white);cursor:pointer;
+  font-family:var(--font-body);font-size:14px;font-weight:500;letter-spacing:.5px;padding:4px 6px;
+}
+.nav-dropdown-toggle::after{
+  content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:.3s;
+}
+.nav-dropdown-toggle svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s;}
+.nav-dropdown.current .nav-dropdown-toggle{color:var(--gold);}
+.nav-dropdown.current .nav-dropdown-toggle::after,
+.nav-dropdown-toggle:hover::after{width:100%;}
+.nav-dropdown-menu{
+  position:absolute;top:calc(100% + 16px);left:50%;transform:translate(-50%,8px);
+  min-width:270px;padding:8px;border-radius:8px;
+  background:rgba(22,22,22,.98);border:1px solid #262626;border-top:2px solid var(--gold);
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
+  opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s;
+}
+.nav-dropdown-menu::before{content:'';position:absolute;left:0;right:0;top:-18px;height:18px;} /* pont pour le survol */
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;transform:translate(-50%,0);}
+.nav-dropdown.open .nav-dropdown-toggle svg{transform:rotate(180deg);}
+@media (hover:hover) and (min-width:769px){
+  .nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translate(-50%,0);}
+  .nav-dropdown:hover .nav-dropdown-toggle svg{transform:rotate(180deg);}
+}
+.nav-links .nav-dropdown-menu a{display:block;text-align:left;padding:10px 14px;border-radius:6px;transition:background .2s;}
+.nav-links .nav-dropdown-menu a::after{display:none;}
+.nav-dropdown-menu strong{display:block;font-size:14px;font-weight:500;color:var(--white);transition:color .2s;}
+.nav-dropdown-menu span{display:block;font-size:12px;color:var(--gray);margin-top:1px;}
+.nav-dropdown-menu a:hover,.nav-dropdown-menu a.current{background:rgba(245,180,0,.08);}
+.nav-dropdown-menu a:hover strong,.nav-dropdown-menu a.current strong{color:var(--gold);}
+
 a.service-card{display:block;color:inherit;}
 .service-card .univers-link{display:inline-block;margin-top:14px;}
 
@@ -381,15 +416,34 @@ a.service-card{display:block;color:inherit;}
 .cta-band{background:linear-gradient(135deg,#1c1600,var(--black) 70%);border-top:1px solid #2a2200;border-bottom:1px solid #2a2200;}
 .cta-band p{color:var(--gray);max-width:560px;margin:0 auto 28px;}
 
-@media(max-width:1300px){
+@media(max-width:1100px){
   .nav-links{gap:14px;}
-  .nav-links a{font-size:13px;}
+  .nav-links a,.nav-dropdown-toggle{font-size:13px;}
+}
+@media(min-width:769px){
+  .logo{flex-shrink:0;}
+  .nav-links>a,.nav-dropdown-toggle{white-space:nowrap;}
+}
+@media(min-width:769px) and (max-width:960px){
+  .nav-cta{display:none;} /* « Contact » reste dans le menu */
 }
 @media(max-width:992px){
   .services-grid.cols-3,.univers-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:768px){
-  .nav-links a{font-size:16px;}
+  .nav-links a,.nav-dropdown-toggle{font-size:16px;}
+  /* Dans le menu latéral, « Prestations » s'ouvre en accordéon */
+  .nav-dropdown{display:flex;flex-direction:column;align-items:center;width:100%;}
+  .nav-dropdown-menu{
+    position:static;transform:none;min-width:0;width:100%;margin-top:12px;padding:6px;
+    background:rgba(255,255,255,.03);border:none;border-left:2px solid var(--gold);border-radius:6px;box-shadow:none;
+    opacity:1;visibility:visible;display:none;
+  }
+  .nav-dropdown-menu::before{display:none;}
+  .nav-dropdown.open .nav-dropdown-menu{display:block;transform:none;}
+  .nav-links .nav-dropdown-menu a{text-align:center;padding:9px 10px;}
+  .nav-dropdown-menu strong{font-size:15px;}
+  .nav-dropdown-menu span{display:none;}
   .page-hero{min-height:auto;padding:130px 0 70px;}
   .univers-grid,.univers-grid.cols-2,.services-grid.cols-3{grid-template-columns:1fr;}
   .univers-card{aspect-ratio:4/3;}

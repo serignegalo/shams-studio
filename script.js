@@ -38,8 +38,28 @@ document.addEventListener('click', (e) => {
   }
 });
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeMenu();
+  if (e.key === 'Escape') { closeMenu(); closeDropdown(); }
 });
+
+// Menu déroulant « Prestations » : survol sur ordinateur (CSS), clic partout
+const dropdown = document.querySelector('.nav-dropdown');
+const dropdownToggle = dropdown && dropdown.querySelector('.nav-dropdown-toggle');
+const survolPossible = window.matchMedia('(hover: hover) and (min-width: 769px)');
+
+function closeDropdown() {
+  if (!dropdown) return;
+  dropdown.classList.remove('open');
+  dropdownToggle.setAttribute('aria-expanded', 'false');
+}
+if (dropdown) {
+  dropdownToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const ouvert = dropdown.classList.toggle('open');
+    dropdownToggle.setAttribute('aria-expanded', String(ouvert));
+  });
+  dropdown.addEventListener('mouseleave', () => { if (survolPossible.matches) closeDropdown(); });
+  document.addEventListener('click', (e) => { if (!dropdown.contains(e.target)) closeDropdown(); });
+}
 
 // Activer les animations seulement si JS tourne correctement
 document.documentElement.classList.add('js-ready');
