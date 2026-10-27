@@ -199,10 +199,11 @@ function partagerParLien(dossierId) {
 
 /* ---------- Outils ---------- */
 
-// L'éditeur de description de Drive enregistre du HTML (« <br /> » pour un retour à la ligne)
+// L'éditeur de description de Drive enregistre du HTML : « <br /> » avec Maj+Entrée,
+// un bloc « <div>…</div> » avec Entrée. Chaque début ou fin de bloc vaut un retour à la ligne.
 function texteBrut(description) {
   return String(description || '')
-    .replace(/<br\s*\/?>|<\/(p|div|li)>/gi, '\n')
+    .replace(/<br\s*\/?>|<\/?(p|div|li)(\s[^>]*)?>/gi, '\n')
     .replace(/<[^>]+>/g, '')
     .replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
